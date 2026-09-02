@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---------- Nav pill ---------- */
+.nav-pill {
+  backdrop-filter: blur(20px);
+}
+
+/* ---------- Hero glow card ---------- */
+.hero-card {
+  background: radial-gradient(
+      120% 100% at 78% 88%,
+      rgba(168, 108, 255, 0.9) 0%,
+      rgba(124, 58, 237, 0.55) 28%,
+      rgba(40, 15, 90, 0.35) 55%,
+      rgba(6, 4, 18, 1) 78%
+    ),
+    linear-gradient(160deg, #0b0713 0%, #0b0713 100%);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ---------- Marquee ---------- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Carousel ---------- */
+.carousel-stage {
+  perspective: 1600px;
+}
+.carousel-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+/* ---------- Star shimmer ---------- */
+.chrome-star {
+  filter: drop-shadow(0 30px 60px rgba(124, 58, 237, 0.55));
+}
+
+/* ---------- Particle canvas ---------- */
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
